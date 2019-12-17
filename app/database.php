@@ -2,7 +2,7 @@
 
 class Database{
  
-    // specify your own database credentials
+    // credentials
 	private $host = "db";
 	private $port = "5432";
     private $db_name = "database";
@@ -10,7 +10,7 @@ class Database{
     private $password = "password";
     public $conn;
  
-    // get the database connection
+    // Connection a la base de données
     public function getConnection(){
         $this->conn = null;
  
@@ -26,7 +26,7 @@ class Database{
 
 	public function createScoresTable() {
 		$table = "scores";
-		
+		//Creation de ma table avec id et score 
 		$this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );//Error Handling
 		$sql ="CREATE TABLE IF NOT EXISTS $table (
 			id SERIAL PRIMARY KEY,
@@ -37,7 +37,4 @@ class Database{
 		return $this;
 	}
 
-	public function fixtureScoresTable() {
-		
-	}
 }
